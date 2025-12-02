@@ -27,3 +27,6 @@ def test_result_function():
 
 if __name__ == "__main__":
     test_result_function()
+#from Car_Insurance.training import result
+#
+#print(result(18, 20000, 12, 2, 0, "suv"))
