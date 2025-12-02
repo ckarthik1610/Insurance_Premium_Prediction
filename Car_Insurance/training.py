@@ -42,15 +42,17 @@ class CarInsurance(Insurance):
     def quote_display(self, age, annual_km, car_age, exp_years, num_accidents, vehicle_type=None):
         """ Summary """
         premium = self.final_premium(age, annual_km, car_age, exp_years, num_accidents, vehicle_type)
-        return (
-            f"-----Car Insurance Quote-----\n"
-            f"Driver Age: {age}\n"
-            f"Years of Experience: {exp_years}\n"
-            f"Previous Accidents: {num_accidents}\n"
-            f"Annual Mileage: {annual_km} km\n"
-            f"Car Age: {car_age} years\n"
-            f"Vehicle Type: {vehicle_type if vehicle_type else 'Not provided'}\n\n"
-            f"Estimated Car Insurance Premium: ${premium}\n"
-            f"--------------------------------"
-        )
+        return premium
+    
+def result(age, annual_km, car_age, exp_years, num_accidents, vehicle_type):
+    model = CarInsurance()
+    return model.quote_display(
+        age=age,
+        annual_km=annual_km,
+        car_age=car_age,
+        exp_years=exp_years,
+        num_accidents=num_accidents,
+        vehicle_type=vehicle_type
+    )
+    
     
