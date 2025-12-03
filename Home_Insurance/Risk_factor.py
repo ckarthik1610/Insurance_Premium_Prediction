@@ -25,7 +25,7 @@ class data:
         with open("Feature_names.pkl","wb") as f:
             pickle.dump(self.features, f)
 
-x = data("dataset.csv")
-x.preprocess()
-x.train()
-x.save()
+a = data("dataset.csv")
+a.preprocess()
+a.train()
+a.save()
