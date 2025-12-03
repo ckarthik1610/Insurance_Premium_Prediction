@@ -11,3 +11,9 @@ The Insurance Premium Predictor is a modular machine learning application design
 - pickle
 
 To run the demo use - `streamlit run App.py`
+
+Sample Outputs 
+
+![Car Insurance](Car Insurance.png)
+![Home Insurance](Home Insurance.png)
+![Health Insurance](Health Insurance.png)
