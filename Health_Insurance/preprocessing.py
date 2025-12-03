@@ -19,8 +19,8 @@ class preprocess:
         )
 
     def preprocessing(self):
-        self.numerical = ["age","children"]
-        self.categorical = ["sex", "bmi", "smoker", "region"]
+        self.numerical = ["age","children","bmi"]
+        self.categorical = ["sex","smoker", "region"]
 
         self.preprocessor = ColumnTransformer(
             transformers=[

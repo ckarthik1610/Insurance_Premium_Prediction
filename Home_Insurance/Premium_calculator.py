@@ -1,7 +1,7 @@
 import pandas as pd
 import pickle
 
-from risk_factor import data 
+from Home_Insurance.Risk_factor import data 
 
 
 class Predict(data):

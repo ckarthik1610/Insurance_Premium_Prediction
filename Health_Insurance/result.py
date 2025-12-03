@@ -1,10 +1,9 @@
-from preprocessing import preprocess
-import pandas as pd
+from Health_Insurance.preprocessing import preprocess
 import joblib
-
+import pandas as pd
 
 class result(preprocess):
-    def  __init__(self, age, sex, bmi, children, smoker, region, path="random_forest.pkl"):
+    def  __init__(self, age, sex, bmi, children, smoker, region, path="Health_Insurance/random_forest.pkl"):
         preprocess.__init__(self,path)
         self.age = age
         self.sex = sex

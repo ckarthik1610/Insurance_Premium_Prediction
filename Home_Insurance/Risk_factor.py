@@ -19,13 +19,8 @@ class data:
         self.model.fit(self.X, self.response)
 
     def save(self):
-        with open("Linear_Regression.pkl","wb") as f:
+        with open("Home_Insurance/Linear_Regression.pkl","wb") as f:
             pickle.dump(self.model, f)
 
-        with open("Feature_names.pkl","wb") as f:
+        with open("Home_Insurance/Feature_names.pkl","wb") as f:
             pickle.dump(self.features, f)
-
-a = data("dataset.csv")
-a.preprocess()
-a.train()
-a.save()
