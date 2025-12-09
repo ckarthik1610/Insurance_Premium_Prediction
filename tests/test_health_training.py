@@ -34,7 +34,7 @@ class TestTraining(unittest.TestCase):
 
     def test_training_output(self):
 
-        model = Training(n=50, split=0.2)    # small forest for fast test
+        model,rmse,r2 = Training(n=50, split=0.2)    # small forest for fast test   
 
         self.assertIsInstance(model, Pipeline)
 
@@ -48,7 +48,7 @@ class TestTraining(unittest.TestCase):
 
     def test_save_model(self):
 
-        model = Training(n=10, split=0.2)
+        model,rmse,r2 = Training(n=10, split=0.2)
 
         save(model, self.model_path)
 
@@ -63,7 +63,3 @@ class TestTraining(unittest.TestCase):
         self.prep.train_test(0.2)
         preds = loaded.predict(self.prep.X_Test)
         self.assertEqual(len(preds), len(self.prep.X_Test))
-
-
-if __name__ == "__main__":
-    unittest.main()

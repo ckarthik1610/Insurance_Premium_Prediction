@@ -16,7 +16,7 @@ class TestResult(unittest.TestCase):
         print("Setting up class resources...")
         cls.model_path = "Health_Insurance/test_random_forest.pkl"
 
-        model = Training(n=50, split=0.2)
+        model,rmse,r2 = Training(n=50, split=0.2)
         save(model, cls.model_path)
 
     @classmethod

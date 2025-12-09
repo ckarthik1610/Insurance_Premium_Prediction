@@ -25,7 +25,7 @@ class TestPreprocess(unittest.TestCase):
     def tearDown(self):
         print("Cleaning up after a test...")
 
-    def test_train_test_split_shapes_and_columns(self):
+    def test_splitting(self):
         self.pp.train_test(split=0.2)
         self.assertEqual(self.pp.X.shape[1], 6)
         self.assertEqual(
@@ -41,7 +41,7 @@ class TestPreprocess(unittest.TestCase):
             ["age", "sex", "bmi", "children", "smoker", "region"]
         )
 
-    def test_preprocessor_fit_transform_output(self):
+    def test_fit(self):
 
         self.pp.train_test(split=0.2)
         preprocessor = self.pp.preprocessing()
