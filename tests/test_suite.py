@@ -1,6 +1,6 @@
 import unittest
 from test_car_insurance import TestCarInsurance
-from test_helper import TestHelper
+from testHelper import TestHelper
 
 
 def suite():
