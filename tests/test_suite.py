@@ -10,6 +10,7 @@ from tests.test_home_insurance import TestHomePredict
 from tests.test_home_insurance2 import TestHomeData
 
 def suite():
+    loader = unittest.defaultTestLoader
     test_suite = unittest.TestSuite()
     
     test_suite.addTests(loader.loadTestsFromTestCase(TestCarInsurance))
