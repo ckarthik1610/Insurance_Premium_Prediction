@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 from sklearn.dummy import DummyRegressor
 
-from Home_Insurance.Premium_Calculator import Predict  
+from Home_Insurance.Premium_calculator import Predict  
 
 class TestHomePredict(unittest.TestCase):
 
