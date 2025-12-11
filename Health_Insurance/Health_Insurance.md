@@ -26,4 +26,4 @@ The requirements for this subpackage involves -
 - joblib
 - sci-kit learn or sklearn
 # Demo Output
-![Health Insurance](Output/Health_Insurance.png)
+![Health Insurance](/Output/Health_Insurance.png)
