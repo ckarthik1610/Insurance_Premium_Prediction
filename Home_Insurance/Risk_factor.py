@@ -24,3 +24,9 @@ class data:
 
         with open("Home_Insurance/Feature_names.pkl","wb") as f:
             pickle.dump(self.features, f)
+
+x = data("Home_Insurance/dataset.csv")
+x.preprocess()
+x.train()
+x.save()
+
