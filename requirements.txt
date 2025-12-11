@@ -1,3 +1,4 @@
+unittest
 scikit-learn
 pandas
 streamlit

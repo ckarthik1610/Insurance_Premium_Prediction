@@ -1,13 +1,13 @@
 
 import unittest
 
-from tests.test_car_insurance import TestCarInsurance
-from tests.testHelper import TestHelper
+from .test_car_insurance import TestCarInsurance
+from .testHelper import TestHelper
 
-from tests.health_suite import health_suite
+from .health_suite import health_suite
 
-from tests.test_home_insurance import TestHomePredict
-from tests.test_home_insurance2 import TestHomeData
+from .test_home_insurance import TestHomePredict
+from .test_home_insurance2 import TestHomeData
 
 def suite():
     loader = unittest.defaultTestLoader

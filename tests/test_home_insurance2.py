@@ -11,8 +11,7 @@ class TestHomeData(unittest.TestCase):
     def setUpClass(cls):
         
         cls.csv_path = "Home_Insurance/test_home_data.csv"
-
-       	sample_df = pd.DataFrame({
+        sample_df = pd.DataFrame({
             "Area": [1200, 1500, 1800, 2000],
             "Bedrooms": [2, 3, 4, 5],
             "Age_of_House": [10, 5, 20, 15],
@@ -27,7 +26,7 @@ class TestHomeData(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
   
-	if os.path.exists(cls.csv_path):
+        if os.path.exists(cls.csv_path):
             os.remove(cls.csv_path)
 
         if os.path.exists(cls.model_file):

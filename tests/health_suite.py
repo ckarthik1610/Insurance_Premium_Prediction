@@ -1,8 +1,8 @@
 import unittest
 
-from tests.test_preprocessing import TestPreprocess
-from tests.test_health_training import TestTraining
-from tests.test_health_result import TestResult
+from .test_preprocessing import TestPreprocess
+from .test_health_training import TestTraining
+from .test_health_result import TestResult
 
 
 def health_suite():

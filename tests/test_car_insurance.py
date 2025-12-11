@@ -1,7 +1,6 @@
 import unittest
 from Car_Insurance.training import CarInsurance, result
-from Car_Insurance import preprocessing
-
+from Car_Insurance.preprocessing import age_factor,mileage_factor,experience_factor,car_age_factor,experience_factor
 
 class TestCarInsurance(unittest.TestCase):
 
@@ -21,10 +20,10 @@ class TestCarInsurance(unittest.TestCase):
 
     def test_preprocessing_factor(self):
         # Four assertions required per test case
-        self.assertIsInstance(preprocessing.age_factor(25), float)
-        self.assertEqual(preprocessing.age_factor(999), 1.0)
-        self.assertGreater(preprocessing.mileage_factor(15000), 0)
-        self.assertLess(preprocessing.experience_factor(0), 2)
+        self.assertIsInstance(age_factor(25), float)
+        self.assertEqual(age_factor(999), 1.0)
+        self.assertGreater(mileage_factor(15000), 0)
+        self.assertLess(experience_factor(0), 2)
 
     def test_final_premium(self):
         premium = self.model.final_premium(25, 15000, 4, 5, 1, "sedan")
