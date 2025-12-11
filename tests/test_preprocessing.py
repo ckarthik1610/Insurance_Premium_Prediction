@@ -58,3 +58,8 @@ class TestPreprocess(unittest.TestCase):
         numeric_slice = transformed[:, -3:]  
         self.assertTrue(numeric_slice.dtype.kind in ["i", "f"])  # int or float
 
+if __name__ == "__main__":
+    temp = unittest.TestLoader().loadTestsFromTestCase(TestPreprocess)
+    runner = unittest.TextTestRunner(verbosity=2)
+    runner.run(temp)
+

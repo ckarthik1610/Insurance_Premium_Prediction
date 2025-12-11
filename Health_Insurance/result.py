@@ -11,6 +11,7 @@ class result(preprocess):
         self.children = children
         self.smoker = smoker
         self.region = region
+        self.file_directory = path
 
     def predict(self):
         data = pd.DataFrame([{
@@ -27,3 +28,6 @@ class result(preprocess):
         prediction = model.predict(data)
 
         return prediction
+
+obj = result(age = 30,sex = "Male",bmi = 24,children = 1,smoker = "Yes",region = "Northwest",path = "Health_Insurance/Test_run.pkl")
+prediction = obj.predict()

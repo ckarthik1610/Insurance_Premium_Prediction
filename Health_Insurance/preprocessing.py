@@ -30,3 +30,7 @@ class preprocess:
         )
 
         return self.preprocessor
+
+x = preprocess("Health_Insurance/insurance_data.csv")
+x.train_test(0.8)
+preprocessor = x.preprocessing()

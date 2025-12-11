@@ -31,8 +31,8 @@ class TestResult(unittest.TestCase):
         self.sex = "male"
         self.bmi = 28.5
         self.children = 1
-        self.smoker = "no"
-        self.region = "southwest"
+        self.smoker = "No"
+        self.region = "Southwest"
 
         self.res = result(
             age=self.age,
@@ -68,3 +68,6 @@ class TestResult(unittest.TestCase):
         self.assertEqual(len(pred1), len(pred2))
 
         self.assertTrue(np.allclose(pred1, pred2))
+
+if __name__ == "__main__":
+    unittest.main()

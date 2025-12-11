@@ -28,11 +28,11 @@ def Training(n = 500,split = 0.2):
     rmse = mean_squared_error(x.Y_Test, Predictions) ** 0.5
     r2 = r2_score(x.Y_Test, Predictions)
 
-    print(f"Test RMSE: {rmse:.2f}")
-    print(f"Test R^2 : {r2:.3f}")
-
-    return model
+    return model,rmse,r2
 
 def save(model,path):
     joblib.dump(model, path)
+
+model,rmse,r2 = Training(100,0.1)
+save(model,"Health_Insurance/Test_run.pkl")
 
