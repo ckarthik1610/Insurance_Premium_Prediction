@@ -73,12 +73,6 @@ class data:
         self.model = LinearRegression()
         self.model.fit(self.X, self.response)
 
-        print("\n=== MODEL COEFFICIENTS ===")
-        for feature, coef in zip(self.features, self.model.coef_):
-            print(f"{feature}: {coef:.4f}")
-
-        print(f"\nIntercept: {self.model.intercept_:.4f}")
-
     def save(self):
         with open("Home_Insurance/Linear_Regression.pkl","wb") as f:
             pickle.dump(self.model, f)
