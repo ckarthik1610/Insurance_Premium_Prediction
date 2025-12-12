@@ -13,9 +13,13 @@ The Unit Testing Modules can be found in the Tests folder, the **tests/test_suit
 - pickle
 
 To run the demo use - `streamlit run App.py`
+You are find our python package at
+`pip install -i https://test.pypi.org/simple/ insurance-prem-pkg`
 
-Sample Outputs 
-
+### Sample Outputs 
+##### Car Insurance
 ![Car Insurance](Output/Car_Insurance.png)
+##### Home Insurance
 ![Home Insurance](Output/Home_Insurance.png)
+##### Health Insurance
 ![Health Insurance](Output/Health_Insurance.png)
