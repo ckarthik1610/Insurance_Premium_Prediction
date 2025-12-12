@@ -14,8 +14,13 @@ The Unit Testing Modules can be found in the Tests folder, the **tests/test_suit
 
 To run the demo use - `streamlit run App.py`
 
-Sample Outputs
+To access our python package - `pip install -i https://test.pypi.org/simple/ insurance-prem-pkg`
 
+### Sample Outputs
+
+##### Car Insurance
 ![Car Insurance](Output/Car_Insurance.png)
+##### Home Insurance
 ![Home Insurance](Output/Home_Insurance.png)
+##### Health Insurance
 ![Health Insurance](Output/Health_Insurance.png)
