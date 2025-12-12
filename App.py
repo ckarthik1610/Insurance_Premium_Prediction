@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
 
 import Car_Insurance
 import Health_Insurance
@@ -48,7 +49,7 @@ elif pills == "Home Insurance":
         Claim_3_Years = "YES"
         Emp = st.selectbox("Owner Currently Employed?",["YES","NO"])
         AD1 = st.selectbox("Accidental Damage?",["YES","NO"])
-        Sex = "M"
+        Sex = st.selectbox("Sex of Owner?",["M","F"])
         Alarm = "NO"
         Locks = "YES"
         Bedroom = st.number_input("No of Bedrooms",min_value = 1,max_value = 6,value = 2)
@@ -71,6 +72,16 @@ elif pills == "Home Insurance":
                 "YearBuilt" : Year_Built
             }
 
+            model_exists = os.path.exists("Home_Insurance/Linear_Regression.pkl")
+            features_exists = os.path.exists("Home_Insurance/Feature_names.pkl")
+
+            if model_exists and features_exists:
+                pass
+            else:
+                x = Home_Insurance.Risk_factor.data("Home_Insurance/dataset.csv")
+                x.preprocess()
+                x.train()
+                x.save()
             premium = Home_Insurance.Predict("Home_Insurance/Linear_Regression.pkl","Home_Insurance/Feature_names.pkl")
             val = premium.predict_price(home_features)
 
@@ -85,7 +96,7 @@ elif pills == "Health Insurance":
         bmi = st.number_input("BMI", min_value=10.0, max_value=60.0, value=24.0)
         num_children = st.number_input("Number of Dependents", min_value=0, max_value=10, value=0)
         smoker = st.selectbox("Smoking",["Yes","No"])
-        region = st.selectbox("Region",["Northwest","Northeast","Southwest","Southeast"]) 
+        region = "Northwest"
 
         submitted = st.form_submit_button("Predict Health Premium")
 
