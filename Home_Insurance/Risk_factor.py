@@ -60,7 +60,14 @@ class data:
         return df
 
     def preprocess(self):
-        self.data = pd.read_csv(self.path)
+        try:
+            self.data = pd.read_csv(self.path)
+
+        except FileNotFoundError:
+            raise FileNotFoundError(f"CSV file not found at path: {self.path}")
+
+        except pd.errors.EmptyDataError:
+            raise ValueError("CSV file is empty")
 
         encoded = self.encoding(self.data)
         self.predictors = encoded.drop("Annual_Premium_Price", axis=1)
