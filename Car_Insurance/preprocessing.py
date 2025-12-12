@@ -3,6 +3,7 @@ preprocessing.py
 ----------------------------------------
 This model is used to calculate the individual risk factors used in the car insurance pricing system. The multipliers are used to estimate overall customer risk, which affects the final premium.
 """
+from .exceptions import InvalidInputError
 # Real Age Multipliers
 Age_Multipliers = {
     18: 1.018341, 19: 1.016126, 20: 1.016307, 21: 1.017236, 22: 1.014096,
@@ -17,6 +18,10 @@ Age_Multipliers = {
     63: 0.986329, 64: 0.988128, 65: 0.988006
 }
 def age_factor(age):
+    if age is None or not isinstance(age,(int,float)):
+        raise InvalidInputError("Age must be numeric.")
+    if age < 0:
+        raise InvalidInputError("Age cannot be negative.")
     return Age_Multipliers.get(age, 1.0)
 
 # Real Mileage Multiplers
@@ -26,6 +31,10 @@ Annual_Mileage_Multipliers = {
     21: 0.999225, 22: 0.998437, 23: 1.000596, 24: 1.000745, 25: 1.001651
 }
 def mileage_factor(annual_km):
+    if annual_km is None or not isinstance(annual_km, (int, float)):
+        raise InvalidInputError("Mileage must be numeric.")
+    if annual_km < 0:
+        raise InvalidInputError("Mileage cannot be negative.")
     key = int(round(annual_km / 1000))
     return Annual_Mileage_Multipliers.get(key, 1.0)
 
@@ -42,6 +51,10 @@ Car_Age_Multiplier = {
     32: 1.003001, 33: 1.003452, 34: 1.006315, 35: 1.005208
 }
 def car_age_factor(car_age):
+    if car_age is None or not isinstance(car_age, (int, float)):
+        raise InvalidInputError("Car age must be numeric.")
+    if car_age < 0:
+        raise InvalidInputError("Car age cannot be negative.")
     return Car_Age_Multiplier.get(car_age, 1.0)
 
 # Experience Multipler multiplier
@@ -57,6 +70,10 @@ Experience_Multiplier = {
     40: 0.979256
 }
 def experience_factor(year_driving):
+    if year_driving is None or not isinstance(year_driving, (int, float)):
+        raise InvalidInputError("Experience must be numeric.")
+    if year_driving < 0:
+        raise InvalidInputError("Experience cannot be negative.")
     return Experience_Multiplier.get(year_driving, 1.0)
 
 # Accident Multiplier
@@ -66,6 +83,10 @@ Accident_Multiplier = {
     4: 1.003906, 5: 1.007272
 }
 def accident_factor(num_accidents):
+    if num_accidents is None or not isinstance(num_accidents, (int, float)):
+        raise InvalidInputError("Accidents must be numeric.")
+    if num_accidents < 0:
+        raise InvalidInputError("Accident count cannot be negative.")
     return Accident_Multiplier.get(num_accidents, 1.0)
 
 # Total combined risks
@@ -73,9 +94,13 @@ def combined_factors(age, annual_km, car_age, year_driving, num_accidents):
     """
     Combining all individual risk multipliers into a single risk score. This will be used inside CarInsurance class.
     """
-    a = age_factor(age)
-    mil = mileage_factor(annual_km)
-    c = car_age_factor(car_age)
-    exp = experience_factor(year_driving)
-    aci = accident_factor(num_accidents)
-    return a * mil * c * exp * aci
+    try:
+        a = age_factor(age)
+        mil = mileage_factor(annual_km)
+        c = car_age_factor(car_age)
+        exp = experience_factor(year_driving)
+        aci = accident_factor(num_accidents)
+        return a * mil * c * exp * aci
+    except InvalidInputError as e:
+        raise InvalidInputError(f"Invalid data passed to combined_factors: {e}")
+    
