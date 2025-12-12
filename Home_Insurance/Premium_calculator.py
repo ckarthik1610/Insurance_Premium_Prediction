@@ -17,12 +17,6 @@ class Predict(data):
 
         with open(self.feature_path, "rb") as f:
             self.features = pickle.load(f)
-        
-        print("\n=== Loaded Model Coefficients ===")
-        for feature, coef in zip(self.features, self.model.coef_):
-            print(f"{feature}: {coef:.4f}")
-
-        print(f"Intercept: {self.model.intercept_:.4f}\n")
 
     def predict_price(self, input_dict: dict) -> float:
         
